@@ -23,6 +23,12 @@ printAndPause([200, 800, 200, 800, 200, 800])
 
 function printAndPause(nums) {
   // Your code here 
+  if (nums.length === 0) return;
+  console.log(nums[0]);
+
+  setTimeout(() => {
+    printAndPause(nums.slice(1));
+  }, nums[0]);
 }
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/

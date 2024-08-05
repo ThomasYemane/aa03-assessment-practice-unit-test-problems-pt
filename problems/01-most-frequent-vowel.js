@@ -62,7 +62,40 @@ mostFrequentVowel(['dog', 'cow', 'pig', 'chicken']); // 'i' or 'o'
 const VOWELS = ['a', 'e', 'i', 'o', 'u'];
 const mostFrequentVowel = function (words, counter = {}) {
   // Your code here 
+  if (words.length === 0) {
+    let maxCount = 0;
+    let mostFrequent = "";
+    for (let vowel in counter) {
+      if (counter[vowel] > maxCount) {
+        maxCount = counter[vowel];
+        mostFrequent = vowel;
+      }
+    }
+    return mostFrequent;
+  }
+
+  // Recursive case: Count the vowels in the last word
+  let word = words.pop();
+  for (let char of word) {
+    if (VOWELS.includes(char)) {
+      if (counter[char]) {
+        counter[char]++;
+      } else {
+        counter[char] = 1;
+      }
+    }
+  }
+
+  // Recursive call with remaining words
+  return mostFrequentVowel(words, counter);
 }
+
+// Example usage:
+console.log(mostFrequentVowel(['apple', 'pear', 'melon', 'coconut', 'lime'])); // 'e'
+console.log(mostFrequentVowel(['dog', 'cow', 'pig', 'chicken', 'horse'])); // 'o'
+console.log(mostFrequentVowel(['dog', 'cow', 'pig', 'chicken'])); // 'i' or 'o'
+
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {

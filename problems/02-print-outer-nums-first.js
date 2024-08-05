@@ -29,24 +29,39 @@ printOuterNumsFirst([21, 4, 6, 93, 78]);
 
 ***********************************************************************/
 
-  function printOuterNumsFirst(nums) {
-    if (nums.length === 1) return;
-
-    // extract the number from the beginning if the length of the array is even
-    // else, extract from the end
-    let num;
-    if (nums.length % 2 === 0) {
-      num = nums.pop();
-    } else {
-      num = nums.shift();
-    }
-
-    // print the extracted number
-    console.log(num);
-
-    // Make a recursive call with the modified nums array.
-    printOuterNumsFirst(nums);
+function printOuterNumsFirst(nums) {
+  if (nums.length === 1) {
+    console.log(nums[0]);
+    return;
   }
+
+  let num;
+  if (nums.length % 2 === 0) {
+    num = nums.shift(); 
+  } else {
+    num = nums.pop(); 
+  }
+
+  
+  console.log(num);
+
+  
+  printOuterNumsFirst(nums);
+}
+
+// Examples:
+printOuterNumsFirst([1, 2, 3, 4, 5, 6, 7, 8]); 
+
+printOuterNumsFirst([21, 4, 6, 93, 78]); 
+
+
+/**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
+try {
+  module.exports = printOuterNumsFirst;
+} catch {
+  module.exports = null;
+}
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {

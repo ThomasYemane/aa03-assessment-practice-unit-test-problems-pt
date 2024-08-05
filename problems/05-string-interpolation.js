@@ -9,6 +9,10 @@ console.log(makeAnimalSound("DUCK", "QUACK")); // => "DUCK goes QUACK!"
 ***********************************************************************/
 
 // Your code here 
+function makeAnimalSound(animal, sound) {
+  return `${animal} goes ${sound}!`;
+}
+
 
 /**************DO NOT MODIFY ANYTHING UNDER THIS  LINE*****************/
 try {
